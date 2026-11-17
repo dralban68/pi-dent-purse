@@ -1,6 +1,6 @@
 # User interface specification
 
-This document specifies how purse shows billing state to the user: the `/purse` slash command
+This document specifies how pi-dent-purse shows billing state to the user: the `/purse` slash command
 with its billing report, and the status line. Entries are provider entries per
 [billing-state.md](billing-state.md), requested from the refresh layer per
 [refresh.md](refresh.md), Section 3.
@@ -28,7 +28,7 @@ Registered through `pi.registerCommand` as `purse`, description
   provider id and a model id that the model guidance names in a line `- <provider>/<model>: …`
   or `- <provider>/<model>:<level>: …`: the first `/` splits the provider from the model, and
   the model id ends at the next `:`. With no model guidance on the branch, the guided view is
-  the full view. purse reads the message from the session branch and MUST NOT read another
+  the full view. pi-dent-purse reads the message from the session branch and MUST NOT read another
   extension's configuration or files.
 - With a UI in mode `tui`: after all entries settle, one custom message is sent through
   `pi.sendMessage`, custom type `purse`, displayed in the session, with the report lines

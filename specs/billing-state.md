@@ -1,6 +1,6 @@
 # Billing state specification
 
-This document specifies the billing state: the normalized, per-provider record purse derives
+This document specifies the billing state: the normalized, per-provider record pi-dent-purse derives
 from adapters, prices, and configuration, and serves through the
 [query protocol](query-protocol.md) and the [user interface](user-interface.md). How captures
 are made and cached is owned by [refresh.md](refresh.md); prices by [prices.md](prices.md).
@@ -158,7 +158,7 @@ percentages ([config-file.md](config-file.md)).
 | `gcloud-unauthenticated` | `gcloud` has no usable account.                                                    |
 | `gcloud-failed`          | `gcloud` failed otherwise or printed unusable output.                              |
 | `project-unresolved`     | The cloud project owning the provider's API key could not be determined.           |
-| `internal`               | An unexpected failure inside purse.                                                |
+| `internal`               | An unexpected failure inside pi-dent-purse.                                        |
 
 ## 7. Content restrictions
 

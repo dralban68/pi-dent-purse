@@ -1,4 +1,4 @@
-# purse
+# pi-dent-purse
 
 A pi extension that collects per-provider LLM billing state and serves it to other extensions and the user.
 
@@ -25,6 +25,6 @@ pnpm fmt:check
 
 ## Rules
 
-- purse owns its identifiers: package `pi-dent-purse`, `purse.conf`, `~/.pi/purse/`, `PURSE_*`, `purse:*` event channels. It reads no pi-dent configuration and depends on no other extension.
+- pi-dent-purse owns its identifiers: package `pi-dent-purse`, `purse.conf`, `~/.pi/purse/`, `PURSE_*`, `purse:*` event channels. It reads no pi-dent configuration and depends on no other extension.
 - Credentials, account identifiers, raw vendor responses, and URLs carrying keys never go into comments, fixtures, commit messages, replies, UI, or diagnostics. Fixtures are redacted by hand.
 - Tests never touch the network or run `gcloud`; adapters receive external dependencies as inputs.

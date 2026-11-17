@@ -1,12 +1,12 @@
 # Configuration file specification
 
-This document specifies purse's configuration file and environment variables.
+This document specifies pi-dent-purse's configuration file and environment variables.
 
 ## 1. File
 
 The configuration file is `~/.pi/purse/purse.conf`, or the absolute path in `PURSE_CONF` when
-set. purse MUST read it once per boot window, at the first `session_start`, and serve that
-image for the whole window. purse MUST NOT read any other configuration file.
+set. pi-dent-purse MUST read it once per boot window, at the first `session_start`, and serve that
+image for the whole window. pi-dent-purse MUST NOT read any other configuration file.
 
 The file is JSONC: [RFC 8259] JSON text extended with `//` line comments, `/* */` block
 comments, and one trailing comma before a closing `]` or `}`. A missing file, and a file
@@ -75,7 +75,7 @@ reports it.
 
 A diagnostic names the configuration file path and the key path of the offending value (for
 example `providers.zai.schedule.windows[0].from`); one about the file as a whole names no key
-path; one about `PURSE_CONF` names the variable and its value. purse MUST report each
+path; one about `PURSE_CONF` names the variable and its value. pi-dent-purse MUST report each
 diagnostic once per boot window through the host UI notification API, level `warning`, as
 `purse: <message>`, at the first `session_start` whose context has a UI. A diagnostic MUST NOT
 fail the extension.

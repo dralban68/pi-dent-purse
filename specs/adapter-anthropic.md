@@ -75,7 +75,7 @@ element yields a window:
 
 ## 4. Header observations
 
-purse MUST handle the host `after_provider_response` event and forwarded responses
+pi-dent-purse MUST handle the host `after_provider_response` event and forwarded responses
 ([query-protocol.md](query-protocol.md), Section 7). When the handler context's current
 model has provider `anthropic` and the event headers contain
 `anthropic-ratelimit-unified-5h-utilization` or `anthropic-ratelimit-unified-7d-utilization`

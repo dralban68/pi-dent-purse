@@ -19,7 +19,7 @@ no credential check of its own.
 
 ## 2. Header observations
 
-purse MUST handle the host `after_provider_response` event and forwarded responses
+pi-dent-purse MUST handle the host `after_provider_response` event and forwarded responses
 ([query-protocol.md](query-protocol.md), Section 7). When the handler context's current
 model has provider `amd` and the event headers contain `x-ratelimit-limit-user-budget-usd` or
 `x-ratelimit-limit-user-rpm` (header names compare case-insensitively), it records a header

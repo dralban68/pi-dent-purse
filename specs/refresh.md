@@ -1,6 +1,6 @@
 # Refresh specification
 
-This document specifies when purse runs adapters, how their results are cached, and how
+This document specifies when pi-dent-purse runs adapters, how their results are cached, and how
 failures back off. Adapter behavior is owned by [adapter-contract.md](adapter-contract.md); the
 entry shape by [billing-state.md](billing-state.md).
 
@@ -11,7 +11,7 @@ entry shape by [billing-state.md](billing-state.md).
 - Each `session_start`, once the live context is set and the configuration is read, emits one
   `purse:changed:v1` ([query-protocol.md](query-protocol.md), Section 5) naming every known
   provider, possibly none.
-- From the live context purse reads, at each use: the inventory, which is
+- From the live context pi-dent-purse reads, at each use: the inventory, which is
   `modelRegistry.getAll()` mapped to inventory models
   ([adapter-contract.md](adapter-contract.md), Section 2.1); the providers of
   `modelRegistry.getAvailable()`; and a provider's credentials per
@@ -68,7 +68,7 @@ A refresh is requested in a mode:
 | `refresh` | Requests one regardless of freshness.     |
 
 - Triggers: a query in `auto` or `refresh` mode, the
-  `/purse` command, and the status line ([user-interface.md](user-interface.md)). purse MUST
+  `/purse` command, and the status line ([user-interface.md](user-interface.md)). pi-dent-purse MUST
   NOT refresh, issue a request, or run a command from the extension factory, from
   `session_shutdown` handlers, or on a timer, nor from `session_start` handlers except the
   status line's `auto` request.

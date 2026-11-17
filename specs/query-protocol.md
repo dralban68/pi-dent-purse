@@ -12,7 +12,7 @@ owned by [billing-state.md](billing-state.md); refresh behavior by [refresh.md](
 | `purse:changed:v1` | service → consumers | A notification (Section 5).       |
 | `purse:observe:v1` | emitter → service   | A forwarded response (Section 7). |
 
-The service is purse. The host bus delivers an event synchronously to every listener, in
+The service is pi-dent-purse. The host bus delivers an event synchronously to every listener, in
 registration order, during `emit`; a listener's code before its first `await` runs inside
 `emit`.
 
@@ -62,7 +62,7 @@ concurrently.
   ([refresh.md](refresh.md), [user-interface.md](user-interface.md)): no notification, no
   session entry or message.
 - Each reply MUST be a new object that is a JSON-compatible value sharing no mutable state with
-  purse or with other replies.
+  pi-dent-purse or with other replies.
 
 ## 4. Reply
 
@@ -83,7 +83,7 @@ A change notification is `{ "protocol": 1, "providers": [<provider id>, …] }`,
 
 - A consumer emits a request with a `respond` that accepts only its first call (returning
   `true`) and returns `false` afterwards.
-- When `emit` returns and `respond` was never called, the outcome is `no-service`: purse is
+- When `emit` returns and `respond` was never called, the outcome is `no-service`: pi-dent-purse is
   absent.
 - A consumer applies its own deadline to an accepted reply: with `maxWaitMs` the bound is
   `maxWaitMs` milliseconds plus a margin; without it, the refresh deadline of 15 seconds
@@ -96,16 +96,16 @@ A change notification is `{ "protocol": 1, "providers": [<provider id>, …] }`,
 
 A forwarded response is `{ "protocol": 1, "provider": <provider id>, "headers": { <name>: <value>, … } }`,
 emitted by an extension for an inference response of provider `provider` that the host's
-`after_provider_response` event does not reach purse with, such as one of a session the
+`after_provider_response` event does not reach pi-dent-purse with, such as one of a session the
 extension created. `headers` holds the response headers, every value a string.
 
-- purse MUST ignore a payload that is not an object, whose `protocol` is not `1`, whose
+- pi-dent-purse MUST ignore a payload that is not an object, whose `protocol` is not `1`, whose
   `provider` is not a string, or whose `headers` is not an object with only string values.
-- Otherwise, with a boot window ([refresh.md](refresh.md), Section 1), purse handles it as an
+- Otherwise, with a boot window ([refresh.md](refresh.md), Section 1), pi-dent-purse handles it as an
   `after_provider_response` event with those headers whose current model has provider
   `provider` ([adapter-anthropic.md](adapter-anthropic.md), Section 4;
   [adapter-amd.md](adapter-amd.md), Section 2). It sends no reply.
-- An emitter MUST NOT forward a response the host event already reaches purse with, and MUST
+- An emitter MUST NOT forward a response the host event already reaches pi-dent-purse with, and MUST
   NOT fail its own work when `emit` throws.
 
 ## 8. Versioning

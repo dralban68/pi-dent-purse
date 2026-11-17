@@ -32,7 +32,7 @@ Run `gcloud` with exactly the arguments `auth`, `print-access-token`, `--quiet`,
 | Zero exit, trimmed stdout not matching `^[A-Za-z0-9._~+/=-]{1,4096}$` | Whole failure `gcloud-failed`          |
 | Zero exit otherwise                                                   | The access token is the trimmed stdout |
 
-purse MUST NOT run any other `gcloud` invocation and MUST NOT change `gcloud` configuration,
+pi-dent-purse MUST NOT run any other `gcloud` invocation and MUST NOT change `gcloud` configuration,
 accounts, or components. Every request below sends header `authorization: Bearer <access
 token>`.
 
