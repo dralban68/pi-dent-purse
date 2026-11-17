@@ -1,0 +1,28 @@
+{
+  "code": 200,
+  "msg": "Operation successful",
+  "success": true,
+  "data": [
+    {
+      "productName": "GLM Coding Max",
+      "productBigTitle": "GLM Coding Plan",
+      "status": "EXPIRED",
+      "billingCycle": "quarterly",
+      "nextRenewTime": "2026-08-09"
+    },
+    {
+      "productName": "GLM Coding Pro",
+      "productBigTitle": "GLM Coding Plan",
+      "status": "VALID",
+      "billingCycle": "monthly",
+      "nextRenewTime": "2026-12-09"
+    },
+    {
+      "productName": "GLM Coding Lite",
+      "productBigTitle": "GLM Coding Plan",
+      "status": "VALID",
+      "billingCycle": "monthly",
+      "nextRenewTime": "2026-12-09"
+    }
+  ]
+}

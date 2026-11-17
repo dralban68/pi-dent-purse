@@ -1,0 +1,950 @@
+terms:
+  - id: access-token
+    label: access token
+    meaning: The short-lived Google OAuth token printed by gcloud
+    owner: specs/adapter-google.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: adapter
+    label: adapter
+    meaning: "The purse component collecting one provider's billing state from its vendor, per adapter-contract.md"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: adapter-spec-override
+    label: adapter-spec override
+    meaning: A severity an adapter captures on a limit window or balance item
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: backoff
+    label: backoff
+    meaning: The period after a failed refresh during which no refresh starts
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: balance
+    label: balance
+    meaning: "Money held on the account, one item per currency"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: billing-report
+    label: billing report
+    meaning: "The rendering of provider entries for the user, specified in user-interface.md"
+    owner: specs/user-interface.md
+    group: Protocol and interface
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: billing-state
+    label: billing state
+    meaning: "The normalized record of one provider's plan, balance, limits, and prices, specified in billing-state.md"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: body-cap
+    label: body cap
+    meaning: The maximum response body size one adapter accepts
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: boot-window
+    label: boot window
+    meaning: The period from a process start or host reload to the next
+    owner: specs/refresh.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: bypassing-refresh
+    label: bypassing refresh
+    meaning: "A refresh the user requested with /purse refresh, ignoring suppression"
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: cache-entry
+    label: cache entry
+    meaning: "purse's stored capture, failure, and refresh state for one provider"
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: capture
+    label: capture
+    meaning: "The facet values one successful refresh produced, its time, and its optional reason"
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: capture-reason
+    label: capture reason
+    meaning: The reason code a successful refresh records when its data came from a fallback
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: change-notification
+    label: change notification
+    meaning: "One purse:changed:v1 event"
+    owner: specs/query-protocol.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: cloud-project
+    label: cloud project
+    meaning: The Google Cloud project owning the Gemini API key
+    owner: specs/adapter-google.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: command-runner
+    label: command runner
+    meaning: "The injectable dependency running an adapter's commands through the host"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: consumer
+    label: consumer
+    meaning: An extension emitting queries
+    owner: specs/query-protocol.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: credential
+    label: credential
+    meaning: "A secret authorizing vendor or cloud requests: an API key, an OAuth token, or a Google access token"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: credential-variable
+    label: credential variable
+    meaning: "The environment variable a tool provider's adapter takes its credential from"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: add
+  - id: current-model
+    label: current model
+    meaning: The model the session uses for its next turn
+    owner: specs/user-interface.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: custom-message
+    label: custom message
+    meaning: "A session entry an extension adds outside a turn, shown in the session and part of the model's context"
+    owner: specs/user-interface.md
+    group: Host
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: derivation-time
+    label: derivation time
+    meaning: "The instant at which purse derives an entry or a price from a capture, configuration, and inventory"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: reown
+        from: specs/refresh.md
+        to: specs/billing-state.md
+  - id: diagnostic
+    label: diagnostic
+    meaning: One warning reported to the user about the configuration file or environment
+    owner: specs/config-file.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: estimated-spend
+    label: estimated spend
+    meaning: "The Google month-to-date cost purse computes from token counts and rates, reported as a limit window"
+    owner: specs/adapter-google.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: exposed-facet
+    label: exposed facet
+    meaning: "A facet an adapter reports; the others are always not-exposed"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: facet
+    label: facet
+    meaning: "One of plan, balance, limits within a billing state"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: facet-value
+    label: facet value
+    meaning: "A facet's known, not-exposed, or unavailable value"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: forwarded-response
+    label: forwarded response
+    meaning: "An inference response's provider and headers that another extension emits on purse:observe:v1 because the host event does not reach purse with it"
+    owner: specs/query-protocol.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: add
+  - id: free-provider
+    label: free provider
+    meaning: "A provider configured as free: zero prices, no adapter"
+    owner: specs/config-file.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: fresh
+    label: fresh
+    meaning: A capture younger than its freshness period
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: freshness-period
+    label: freshness period
+    meaning: The time a capture stays fresh
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: full-view
+    label: full view
+    meaning: The billing report with every model of each selected provider
+    owner: specs/user-interface.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: guided-model
+    label: guided model
+    meaning: A provider id and a model id that a model guidance names
+    owner: specs/user-interface.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: guided-view
+    label: guided view
+    meaning: "The billing report narrowed to guided models, per user-interface.md"
+    owner: specs/user-interface.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: header-observation
+    label: header observation
+    meaning: "Limit values purse read from response headers of a provider's inference requests the host made"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: reown
+        from: specs/adapter-anthropic.md
+        to: specs/adapter-contract.md
+      - date: 2026-11-14
+        op: update
+        meaning: Limit values purse read from response headers of anthropic inference requests the host made
+  - id: host
+    label: host
+    meaning: The pi process and extension API purse runs in
+    owner: specs/adapter-contract.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: host-allowlist
+    label: host allowlist
+    meaning: The https origins one adapter contacts
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: inventory
+    label: inventory
+    meaning: "The host's registered model list, from the model registry"
+    owner: specs/adapter-contract.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: inventory-model
+    label: inventory model
+    meaning: One inventory entry in the shape of adapter-contract.md Section 2.1
+    owner: specs/adapter-contract.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: json-compatible-value
+    label: JSON-compatible value
+    meaning: "null, a boolean, a finite number, a string, or an array or plain object whose members are all JSON-compatible values"
+    owner: specs/query-protocol.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: reown
+        from: specs/billing-state.md
+        to: specs/query-protocol.md
+      - date: 2026-11-14
+        op: update
+  - id: known-provider
+    label: known provider
+    meaning: "A provider purse serves by default, per refresh.md"
+    owner: specs/refresh.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: limit-window
+    label: limit window
+    meaning: One usage allowance with its consumption and reset
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: live-context
+    label: live context
+    meaning: "The host context purse uses for the model registry, per refresh.md"
+    owner: specs/refresh.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: low-balance-threshold
+    label: low-balance threshold
+    meaning: "A provider's configured balance below which a balance item's severity is low"
+    owner: specs/config-file.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: minimum-interval
+    label: minimum interval
+    meaning: The least time between the starts of two refreshes of one provider
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: model-guidance
+    label: model guidance
+    meaning: "The custom message listing the models a session is guided to use, per user-interface.md"
+    owner: specs/user-interface.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: model-registry
+    label: model registry
+    meaning: "The host's model and authentication registry reached through a context (ctx.modelRegistry)"
+    owner: specs/adapter-contract.md
+    group: Host
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: model-severity
+    label: model severity
+    meaning: Provider severity additionally counting limit windows scoped to one model
+    owner: specs/billing-state.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: offer
+    label: offer
+    meaning: "The service's call of a request's respond callback with the reply promise"
+    owner: specs/query-protocol.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: past-its-reset
+    label: past its reset
+    meaning: A limit window whose resetsAt is at or before the derivation time
+    owner: specs/billing-state.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: plan
+    label: plan
+    meaning: "The name of the account's subscription or usage tier"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: price
+    label: price
+    meaning: "A model's rates, tiers, source, and schedule, specified in prices.md"
+    owner: specs/prices.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: price-schedule
+    label: price schedule
+    meaning: "Recurring time windows during which a multiplier applies to a provider's rates"
+    owner: specs/adapter-deepseek.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: provider
+    label: provider
+    meaning: "A pi provider id, such as anthropic or llm-dralban68; the unit billing state is kept per"
+    owner: specs/billing-state.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: provider-entry
+    label: provider entry
+    meaning: The serialized billing state of one provider in a reply or the billing report
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: provider-origin
+    label: provider origin
+    meaning: "The https origin of a provider's inference service, fixed per adapter"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: provider-severity
+    label: provider severity
+    meaning: The severity of a provider over its provider-wide limit windows and usage-gating balance
+    owner: specs/billing-state.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: query
+    label: query
+    meaning: "One request on purse:query:v1 and its reply"
+    owner: specs/query-protocol.md
+    group: Protocol and interface
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: rate
+    label: rate
+    meaning: "USD per million tokens for one token class: input, output, cache read, cache write"
+    owner: specs/prices.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: reason-code
+    label: reason code
+    meaning: An identifier stating why data is missing or a refresh failed
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: refresh
+    label: refresh
+    meaning: One run of an adapter updating its cache entry
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: reply
+    label: reply
+    meaning: "The object an offer's promise settles to"
+    owner: specs/query-protocol.md
+    group: Protocol and interface
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: scoped-window
+    label: scoped window
+    meaning: "A limit window that applies to some of the provider's models only, its models not null"
+    owner: specs/adapter-anthropic.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: service
+    label: service
+    meaning: "The extension answering queries: purse"
+    owner: specs/query-protocol.md
+    group: Protocol and interface
+    key: shared
+    status: active
+    distinguish:
+      - provider
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: serving-age
+    label: serving age
+    meaning: The age beyond which a capture is no longer served
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: session-branch
+    label: session branch
+    meaning: The session entries from the start of the session to its current leaf
+    owner: specs/user-interface.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: session-replacement
+    label: session replacement
+    meaning: "The host replacing the current session through new, resume, or fork"
+    owner: specs/refresh.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: severity
+    label: severity
+    meaning: "A coarse level of a limit window, balance item, or provider"
+    owner: specs/billing-state.md
+    group: Billing state
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: single-flight
+    label: single-flight
+    meaning: Joining a requested refresh to the one in flight for the same provider
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: slash-command
+    label: slash command
+    meaning: "A command invoked in the pi console as /<name>"
+    owner: specs/user-interface.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: spend-cap
+    label: spend cap
+    meaning: "Google's monthly spending ceiling of a usage tier"
+    owner: specs/adapter-google.md
+    group: Billing state
+    key: local
+    status: active
+    distinguish:
+      - balance
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: stale
+    label: stale
+    meaning: A served capture that is no longer fresh
+    owner: specs/user-interface.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: reown
+        from: specs/refresh.md
+        to: specs/user-interface.md
+  - id: status-line
+    label: status line
+    meaning: "purse's footer status text for the current model's provider"
+    owner: specs/user-interface.md
+    group: Protocol and interface
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: suppression
+    label: suppression
+    meaning: Not starting a requested refresh because of backoff or the minimum interval
+    owner: specs/refresh.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: time-left
+    label: time left
+    meaning: "The interval from the render time to a limit window's resetsAt"
+    owner: specs/user-interface.md
+    group: Protocol and interface
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: tool-provider
+    label: tool provider
+    meaning: "A provider whose adapter reads a non-model vendor account, such as exa, with a credential from the environment"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    distinguish:
+      - provider
+    history:
+      - date: 2026-11-14
+        op: add
+  - id: transport
+    label: transport
+    meaning: "The injectable dependency performing an adapter's HTTP requests"
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: turn
+    label: turn
+    meaning: "One user prompt and the agent's response to it"
+    owner: specs/user-interface.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: usage-tier
+    label: usage tier
+    meaning: "Google's per-project level of rate limits, reported as the plan"
+    owner: specs/adapter-google.md
+    group: Billing state
+    key: local
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+      - date: 2026-11-14
+        op: update
+  - id: vendor
+    label: vendor
+    meaning: "The company operating a provider's service"
+    owner: specs/adapter-contract.md
+    group: Host
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md
+  - id: whole-failure
+    label: whole failure
+    meaning: An adapter outcome with one reason code and no facet values
+    owner: specs/adapter-contract.md
+    group: Collection
+    key: shared
+    status: active
+    history:
+      - date: 2026-11-14
+        op: import
+        from: specs/thesaurus.md

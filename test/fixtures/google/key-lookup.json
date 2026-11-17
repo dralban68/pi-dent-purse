@@ -1,0 +1,16 @@
+{
+  "parent": "projects/123456789012/locations/global",
+  "name": "projects/123456789012/locations/global/keys/fixture-key-0001",
+  "keyString": "AIzaSyPURSE-FIXTURE-KEY-0000000000000",
+  "displayName": "purse demo key",
+  "createTime": "2026-09-02T18:24:11Z",
+  "uid": "8f14e45fceea167a5a36dedd4bea2543",
+  "etag": "W/\"o0vXk3Q\"",
+  "restrictions": {
+    "apiTargets": [
+      {
+        "service": "generativelanguage.googleapis.com"
+      }
+    ]
+  }
+}

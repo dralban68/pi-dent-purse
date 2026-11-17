@@ -1,0 +1,34 @@
+{
+  "quotaInfos": [
+    {
+      "name": "projects/123456789012/locations/global/services/generativelanguage.googleapis.com/quotaInfos/GenerateRequestsPerDayPerProjectPerModel-PaidTier1",
+      "quotaId": "GenerateRequestsPerDayPerProjectPerModel-PaidTier1",
+      "metric": "generativelanguage.googleapis.com/generate_requests_per_model",
+      "service": "generativelanguage.googleapis.com",
+      "isPrecise": true,
+      "refreshInterval": "day",
+      "containerType": "PROJECT",
+      "dimensions": ["model"],
+      "metricDisplayName": "Requests per day",
+      "quotaDisplayName": "Requests per day",
+      "metricUnit": "1",
+      "isFixed": false,
+      "isConcurrent": false
+    },
+    {
+      "name": "projects/123456789012/locations/global/services/generativelanguage.googleapis.com/quotaInfos/FileStorageBytesPerProject",
+      "quotaId": "FileStorageBytesPerProject",
+      "metric": "generativelanguage.googleapis.com/file_storage_bytes",
+      "service": "generativelanguage.googleapis.com",
+      "isPrecise": true,
+      "refreshInterval": "hour",
+      "containerType": "PROJECT",
+      "dimensions": [],
+      "metricDisplayName": "File storage",
+      "quotaDisplayName": "File storage bytes",
+      "metricUnit": "By",
+      "isFixed": false,
+      "isConcurrent": false
+    }
+  ]
+}

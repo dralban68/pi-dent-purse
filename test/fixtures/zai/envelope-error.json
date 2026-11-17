@@ -1,0 +1,5 @@
+{
+  "code": 1302,
+  "msg": "Rate limit reached for requests",
+  "success": false
+}

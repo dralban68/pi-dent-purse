@@ -1,0 +1,19 @@
+{
+  "five_hour": null,
+  "seven_day": null,
+  "seven_day_oauth_apps": null,
+  "seven_day_opus": {
+    "utilization": 33.0,
+    "resets_at": "2026-11-15T04:00:00.512341+00:00",
+    "limit_dollars": 60.0,
+    "used_dollars": 19.8,
+    "remaining_dollars": 40.2,
+    "locked_reason": null
+  },
+  "seven_day_sonnet": null,
+  "extra_usage": null,
+  "limits": [],
+  "spend": null,
+  "member_dashboard_available": false,
+  "cinder_cove": null
+}
