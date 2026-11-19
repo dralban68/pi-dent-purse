@@ -149,7 +149,7 @@ async function readBody(response: Response, cap: number, signal: AbortSignal): P
 }
 
 /**
- * The transport (Section 4) bound to one adapter's host allowlist: one `GET`, the request
+ * The transport (Section 4) bound to one adapter's host allowlist: one request, the request
  * deadline, the body cap, and the status mapping; never a redirect, never a failure that
  * rejects.
  */
@@ -167,6 +167,12 @@ export function createTransport(
 
     const cap = request.bodyCap;
     if (!Number.isFinite(cap) || cap < 0) return failure("internal");
+    // Section 4: a body goes only with `POST`, and `POST` always carries one.
+    const method = request.method === undefined ? "GET" : request.method;
+    const requestBody = request.body;
+    if (method === "POST" ? typeof requestBody !== "string" : requestBody !== undefined) {
+      return failure("internal");
+    }
     if (request.signal.aborted) return failure("deadline");
 
     const controller = new AbortController();
@@ -188,20 +194,22 @@ export function createTransport(
       try {
         headers = new Headers(request.headers);
         headers.set("accept", ACCEPT_HEADER);
-        headers.set("user-agent", USER_AGENT_HEADER);
+        if (!headers.has("user-agent")) headers.set("user-agent", USER_AGENT_HEADER);
       } catch {
         return failure("internal");
       }
 
+      const init: RequestInit = {
+        method,
+        headers,
+        // Never follow: a 3xx is the answer to report.
+        redirect: "manual",
+        signal: controller.signal,
+      };
+      if (requestBody !== undefined) init.body = requestBody;
       let response: Response;
       try {
-        response = await fetchFunction(request.url, {
-          method: "GET",
-          headers,
-          // Never follow: a 3xx is the answer to report.
-          redirect: "manual",
-          signal: controller.signal,
-        });
+        response = await fetchFunction(request.url, init);
       } catch {
         return failure(cause ?? "network");
       }

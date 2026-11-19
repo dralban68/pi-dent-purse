@@ -251,6 +251,38 @@ test("sends GET, the adapter headers, accept and user-agent, with redirects unfo
   assert.deepEqual([...headers.keys()].toSorted(), ["accept", "authorization", "user-agent"]);
 });
 
+test("keeps a request's own user-agent header in any letter case while replacing accept", async () => {
+  const { fetch, calls } = recordingFetch(() => new Response("{}", { status: 200 }));
+  await createTransport(fetch)(
+    transportRequest({ headers: { "User-Agent": "custom-client/1.0", Accept: "text/plain" } }),
+  );
+
+  const call = calls[0];
+  assert.ok(call);
+  const headers = new Headers(call.init.headers);
+  assert.equal(headers.get("accept"), "application/json");
+  assert.equal(headers.get("user-agent"), "custom-client/1.0");
+});
+
+test("sends a POST with its verbatim body, and refuses a body without POST and a POST without one", async () => {
+  const { fetch, calls } = recordingFetch(() => new Response("{}", { status: 200 }));
+  const posted = await createTransport(fetch)(
+    transportRequest({ method: "POST", body: '{"metadata":{}}' }),
+  );
+  if (!("status" in posted)) assert.fail("expected success");
+  assert.equal(posted.status, 200);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0]?.init.method, "POST");
+  assert.equal(calls[0]?.init.body, '{"metadata":{}}');
+
+  const bodyWithoutPost = await createTransport(fetch)(transportRequest({ body: "{}" }));
+  assert.deepEqual(bodyWithoutPost, { reason: "internal" });
+
+  const postWithoutBody = await createTransport(fetch)(transportRequest({ method: "POST" }));
+  assert.deepEqual(postWithoutBody, { reason: "internal" });
+  assert.equal(calls.length, 1);
+});
+
 test("fails with internal on a header name the platform rejects, without rejecting", async () => {
   const { fetch, calls } = recordingFetch(() => new Response("{}"));
   const outcome = await createTransport(fetch)(

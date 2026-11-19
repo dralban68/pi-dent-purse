@@ -54,14 +54,19 @@ export interface AdapterDependencies {
 }
 
 /**
- * One request under Section 4: method `GET`, `accept: application/json` and
- * `user-agent: pi-dent-purse` added by the transport. The allowlist is bound into the transport.
+ * One request under Section 4: `accept: application/json` and `user-agent: pi-dent-purse`
+ * added by the transport; method `GET` unless the request names `POST` with its spec's
+ * verbatim `body`. The allowlist is bound into the transport.
  */
 export interface TransportRequest {
   /** An `https:` URL without userinfo whose origin is in the bound allowlist, else `internal`. */
   url: string;
   /** Only the headers the adapter spec lists (Sections 3–4). */
   headers?: Record<string, string>;
+  /** `POST` only, and only where the adapter spec states the request's body verbatim. */
+  method?: "POST";
+  /** The verbatim body of a `POST` request; a body without `method` is refused. */
+  body?: string;
   /** Body cap in bytes of a 2xx body (Section 4). */
   bodyCap: number;
   /** The refresh's abort signal: aborted means `deadline`; the 8-second expiry is `timeout`. */

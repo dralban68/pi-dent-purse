@@ -1,0 +1,13 @@
+{
+  "currentTier": { "id": "free-tier", "name": "Free tier" },
+  "paidTier": {
+    "id": "g1-pro-tier",
+    "name": "Google AI Pro",
+    "availableCredits": [
+      { "creditType": "GOOGLE_ONE_AI", "creditAmount": 8 },
+      { "creditType": "GOOGLE_ONE_AI", "creditAmount": 3 },
+      { "creditAmount": 5 }
+    ]
+  },
+  "availableCredits": [{ "creditType": "TOP_LEVEL", "creditAmount": 99 }]
+}

@@ -13,6 +13,7 @@ the cache per [refresh.md](refresh.md); facet values follow [billing-state.md](b
 | [adapter-zai.md](adapter-zai.md)                   | `zai`          |
 | [adapter-deepseek.md](adapter-deepseek.md)         | `deepseek`     |
 | [adapter-google.md](adapter-google.md)             | `google`       |
+| [adapter-antigravity.md](adapter-antigravity.md)   | `antigravity`  |
 | [adapter-openai-codex.md](adapter-openai-codex.md) | `openai-codex` |
 | [adapter-exa.md](adapter-exa.md)                   | `exa`          |
 | [adapter-amd.md](adapter-amd.md)                   | `amd`          |
@@ -57,7 +58,7 @@ is the outcome that has a `reason` field:
 
 | Outcome         | Fields                                                                                       |
 | --------------- | -------------------------------------------------------------------------------------------- |
-| Request         | `url`, `headers?`, `bodyCap` (bytes), `signal`.                                              |
+| Request         | `url`, `headers?`, `method?`, `body?` (text), `bodyCap` (bytes), `signal`.                   |
 | Request success | `status`, `headers` (lowercase keys), `body` (text).                                         |
 | Request failure | `reason`, `status?` (present when a response arrived), `retryAfter?` (seconds).              |
 | Command         | `command`, `args`, `deadlineMs`, `outputCap` (bytes), `signal`.                              |
@@ -131,11 +132,16 @@ The same shape serves price derivation ([prices.md](prices.md), Section 2).
 
 The transport is created for one adapter with its host allowlist. It MUST, for every request:
 
-- use method `GET`, and refuse before connecting, with `internal`, a URL that has no origin
-  (Section 3: not `https:`, unparsable, or carrying userinfo) or whose origin is not in the
-  host allowlist, and a request whose headers are not valid HTTP header names and values;
-- send the request's `headers`, then `accept: application/json` and `user-agent: pi-dent-purse`,
-  each replacing a request header of the same name in any letter case;
+- use the request's method, `GET` unless the request names `POST` — an adapter names `POST`
+  only where its spec states the request's body verbatim — and refuse before connecting, with
+  `internal`, a URL that has no origin (Section 3: not `https:`, unparsable, or carrying
+  userinfo) or whose origin is not in the host allowlist, a request whose headers are not
+  valid HTTP header names and values, a `body` on a request whose method is not `POST`, and a
+  `POST` request without a `body`;
+- send the request's `headers`, then `accept: application/json`, replacing any `accept` header
+  in any letter case, and `user-agent: pi-dent-purse` when the request carries no `user-agent`
+  header in any letter case — an adapter sets `user-agent` only where its spec states the
+  value verbatim;
 - refuse redirects: a 3xx response fails with `redirect`, unfollowed;
 - stop after 8 seconds with `timeout`, and when `signal` aborts with `deadline`;
 - for a 2xx response, read at most `bodyCap` bytes of the body; more fails with

@@ -7,6 +7,7 @@ Write and review specs per the `dx:writing-specs` skill, which defines the requi
 | Spec                      | Subject                      |
 | ------------------------- | ---------------------------- |
 | `adapter-amd.md`          | AMD TokenLab billing adapter |
+| `adapter-antigravity.md`  | Antigravity billing adapter  |
 | `adapter-anthropic.md`    | Anthropic billing adapter    |
 | `adapter-contract.md`     | Shared adapter contract      |
 | `adapter-deepseek.md`     | DeepSeek billing adapter     |

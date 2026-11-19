@@ -4,6 +4,7 @@
  */
 
 import type { Adapter } from "../adapter.ts";
+import { antigravity } from "./antigravity.ts";
 import { amd } from "./amd.ts";
 import { anthropic } from "./anthropic.ts";
 import { deepseek } from "./deepseek.ts";
@@ -14,5 +15,8 @@ import { zai } from "./zai.ts";
 
 /** The adapters by provider id; pass to `createRefresher({ adapters: ADAPTERS })`. */
 export const ADAPTERS: ReadonlyMap<string, Adapter> = new Map(
-  [amd, anthropic, deepseek, exa, google, openaiCodex, zai].map((adapter) => [adapter.id, adapter]),
+  [antigravity, amd, anthropic, deepseek, exa, google, openaiCodex, zai].map((adapter) => [
+    adapter.id,
+    adapter,
+  ]),
 );

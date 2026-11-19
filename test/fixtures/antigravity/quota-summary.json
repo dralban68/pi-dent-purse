@@ -1,0 +1,42 @@
+{
+  "description": "Account quota pools",
+  "groups": [
+    {
+      "displayName": "Gemini Pro",
+      "buckets": [
+        {
+          "bucketId": "gemini-pro-pool",
+          "displayName": "Gemini Pro",
+          "remainingFraction": 0.9,
+          "resetTime": "2030-06-01T08:00:00Z"
+        },
+        {
+          "bucketId": "gemini-pro-pool",
+          "displayName": "Gemini Pro",
+          "remainingFraction": 0.2,
+          "resetTime": "2030-06-01T08:00:00Z"
+        },
+        {
+          "displayName": "Shared pool",
+          "remainingFraction": 0.5
+        },
+        {
+          "displayName": "Unreportable",
+          "remainingFraction": 1.5,
+          "resetTime": "not-a-date"
+        }
+      ]
+    },
+    {
+      "displayName": "Claude and GPT",
+      "buckets": [
+        {
+          "bucketId": "claude-gpt-pool",
+          "displayName": "Claude and GPT",
+          "remainingFraction": 0.25,
+          "resetTime": "2030-06-05T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}
