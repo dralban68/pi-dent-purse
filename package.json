@@ -1,6 +1,6 @@
 {
   "name": "pi-dent-purse",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A pi extension that collects per-provider LLM billing state and serves it to other extensions and the user",
   "keywords": [
     "billing",
