@@ -1,6 +1,9 @@
 name: publish
 
-# On every push to main: check, then publish to npm unless package.json's version is already there.
+# On every push to main: check, then publish to npm. If package.json's version is already on
+# npm, the patch version is bumped first, and after a successful publish the bump is committed
+# back to main, so main always names the latest release. The GITHUB_TOKEN push does not
+# trigger workflows, so this does not loop.
 # Auth: npm trusted publishing (OIDC) once configured on npmjs.com, else the NPM_TOKEN secret
 # (a granular token with "bypass two-factor authentication").
 on:
@@ -9,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
 
 concurrency:
@@ -21,6 +24,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: Bump the patch version unless it is on npm
+        id: bump
+        run: |
+          name=$(node -p 'require("./package.json").name')
+          version=$(node -p 'require("./package.json").version')
+          if [ "$(npm view "$name@$version" version --prefer-online 2>/dev/null)" = "$version" ]; then
+            echo "$name@$version is already on npm; bumping the patch version"
+            npm version patch --no-git-tag-version
+            echo "bumped=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v5
         with:
@@ -56,3 +69,16 @@ jobs:
             exit 0
           fi
           exit 1
+      - name: Commit the version bump back to main
+        if: steps.bump.outputs.bumped == 'true'
+        run: |
+          name=$(node -p 'require("./package.json").name')
+          version=$(node -p 'require("./package.json").version')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "release: $name@$version"
+          git pull --rebase origin main
+          if ! git push origin main; then
+            echo "::warning::published $name@$version, but the version bump could not be pushed to main; the next push bumps again"
+          fi
